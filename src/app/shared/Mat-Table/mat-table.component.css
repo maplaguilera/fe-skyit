@@ -24,11 +24,11 @@ table {
     background-color: #FEEDAF;
   }
 
- tr.mat-row:hover {
+ /*tr.mat-row:hover {
     background-color: #e2f2fd;
 
 }
-
+*/
 
 .checkbox-round {
   width: 1.3em;

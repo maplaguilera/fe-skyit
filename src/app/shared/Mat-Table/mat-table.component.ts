@@ -17,11 +17,13 @@ export interface DialogData {
 })
 export class MatTableComponent implements AfterViewInit ,OnChanges {
   @Input() MoviesList :Movies[] =[];
+  hover:boolean=false;
   MovieDetail:Movies=new Movies();
   FileteredMovielist:Movies[] =[];
   DistinctDirectors:string[] =[];
   DistinctCertifications:string[]=[];
   CheckBoxs:boolean[]=[];
+  HoversRow:boolean[]=[];
   displayedColumns: string[] = ['IsSelected','Title', 'Year', 'Running_Time', 'Director','Certification','Rating'];
   dataSource = new MatTableDataSource<Movies>(this.FileteredMovielist);
 
@@ -47,6 +49,7 @@ SetDistinctCertifications(){
 SetUpCheckboxes(){
   this.FileteredMovielist.forEach((x,index)=>{
     this.CheckBoxs.push(false);
+    this.HoversRow.push(false);
   });
 }
 

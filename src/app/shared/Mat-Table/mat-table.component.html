@@ -119,7 +119,11 @@
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr (click)=" i>0 && openDialog(row,i)"  mat-row *matRowDef="let row; let i=index;columns: displayedColumns;"></tr>
+      <tr (click)=" i>0 && openDialog(row,i)"  
+            mat-row *matRowDef="let row; let i=index;columns: displayedColumns;"
+            (mouseover)=" i>0? HoversRow[i]=true: HoversRow[i]=false" 
+            (mouseleave)="HoversRow[i]=false"
+            [ngStyle]="{'background-color':HoversRow[i]? '#e2f2fd':'white'}"></tr>
     </table>
   
     <mat-paginator [pageSizeOptions]="[11, 20]"
