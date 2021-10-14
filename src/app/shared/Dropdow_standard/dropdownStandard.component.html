@@ -1,0 +1,20 @@
+<mat-form-field appearance="fill" class ="dropdownBox">
+  <mat-label>{{label}}</mat-label>
+  <mat-select (selectionChange)="GetItem($event.value)">
+    <mat-option [value]="'All'">
+      All
+    </mat-option>
+    <mat-option *ngFor="let item of CheckBoxCertifications" 
+                [value]="item.description"
+                style="padding: 5px;">
+    
+        <div [ngClass]="{'make-green' : item.description  =='General',
+        'make-pink' : item.description  =='14 Accompaniment',
+        'make-yellow' : item.description  =='CA-PG'} " >
+          {{item.description}}
+      </div>
+     
+    </mat-option>
+  </mat-select>
+
+</mat-form-field>

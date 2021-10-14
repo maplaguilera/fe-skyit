@@ -1,0 +1,16 @@
+
+<form 
+style ="border: solid;padding:5px; border-width: 1px;border-color: #e6e6e9;"  class="dropdownBox" [formGroup]="searchUserForm" fxFlex fxLayout="column" autocomplete="off">
+	<mat-label>All</mat-label>
+    <mat-select placeholder="Filter By Director" formControlName="userType" multiple>
+        <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+		<mat-option *ngFor="let obj of CheckBoxDirector" 
+                    [value]="obj.description"
+                    (click)="listSelected()">
+			{{obj.description}}
+		</mat-option>
+		
+	</mat-select>
+</form>
+
+

@@ -1,0 +1,47 @@
+.dropdownBox {
+    min-width: 115px;
+    max-width: 115px;
+    width: 100%;
+    background-color: white !important;
+    font-size: 10px;
+  }
+  .dropdownBox .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white !important;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e6e6e9;
+  }
+
+  .dropdownBox .mat-select-panel {
+    background: white !important;
+}
+
+
+.make-green{
+  
+  display:inline-block;
+  color: #536154;
+  background-color: #C8E6C9;
+}
+
+  .make-pink{
+  
+  display:inline-block;
+  color: #977c7f;
+  background-color: #ffcdd2;
+}
+
+.make-yellow{
+  
+  display:inline-block;
+  color: #9c9169;
+  background-color: #FEEDAF;
+}
+
+.mat-select-panel mat-option.mat-option {
+  height: unset;
+}
+
+.mat-option-text.mat-option-text {
+  white-space: normal;
+}

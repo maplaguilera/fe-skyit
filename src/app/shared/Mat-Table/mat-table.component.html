@@ -1,0 +1,131 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="IsSelected">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td  mat-cell *matCellDef="let element;let i=index"> 
+       
+        <!--<fe-checkbox *ngIf="i>0"></fe-checkbox> -->
+        <input *ngIf="i>0" 
+                type="checkbox" 
+                class="checkbox-round" 
+                [(ngModel)]="CheckBoxs[i]" />
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element;let i=index"> 
+          <div *ngIf="i>0; else ShowSearchBy">
+            {{element.title}} 
+          </div>
+          <ng-template #ShowSearchBy>
+            <div style="align-items: center; justify-content: center;margin-top: 10px;" >
+              <fe-inputBox [labelInput]="'Search By Title'"
+                            (inputOutput)="FiltereByTitle($event)"></fe-inputBox>
+            </div>
+          </ng-template> 
+        </td>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="Year">
+        <th mat-header-cell *matHeaderCellDef> Year </th>
+        <td mat-cell *matCellDef="let element;let i=index"> 
+          <div *ngIf="i>0 ; else ShowSearchBy ">
+            {{element.year}} 
+          </div>
+          <ng-template #ShowSearchBy>
+            <div style="align-items: center; justify-content: center;margin-top: 10px;" >
+              <fe-inputBox [labelInput]="'Search By Year'"
+                          (inputOutput)="FiltereByYear($event)"></fe-inputBox>
+            </div>
+          </ng-template> 
+        </td>
+      </ng-container>
+  
+    
+      <ng-container matColumnDef="Running_Time">
+        <th mat-header-cell *matHeaderCellDef> Running Time </th>
+        <td mat-cell *matCellDef="let element;let i=index"> 
+          <div *ngIf="i>0; else ShowSearchBy">
+            {{element.running_time}} 
+          </div>
+          <ng-template #ShowSearchBy>
+            <div style="align-items: center; justify-content: center;margin-top: 10px;" >
+              <fe-inputBox [labelInput]="'Search By Time'"
+                            (inputOutput)="FiltereByRunningTime($event)"></fe-inputBox>
+            </div>
+          </ng-template> 
+         
+        </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="Director">
+        <th mat-header-cell *matHeaderCellDef> Director </th>
+        <td mat-cell *matCellDef="let element;let i=index"> 
+          <div *ngIf="i>0 ; else  ShowSearchBy">
+            {{element.director}} 
+          </div>
+          <ng-template #ShowSearchBy>
+            <div style="align-items: center; justify-content: center;margin-top: -5px;" >
+              <fe-select [Directors]="DistinctDirectors"
+                        (SelectedDirectores)="FiltereByDirectors($event)" ></fe-select>
+            </div>
+          </ng-template> 
+        </td>
+      </ng-container>
+
+         
+         <ng-container matColumnDef="Certification">
+          <th mat-header-cell *matHeaderCellDef> Certification </th>
+          <td mat-cell *matCellDef="let element;let i=index"> 
+            <div [ngClass]="{'make-green' : element.certification  =='General',
+                             'make-pink' : element.certification  =='14 Accompaniment',
+                             'make-yellow' : element.certification  =='CA-PG'} " 
+                 
+                *ngIf="i>0; else ShowSearchBy">
+              {{element.certification}} 
+            </div>  
+
+            <ng-template #ShowSearchBy>
+              <div style="align-items: center; justify-content: center;margin-top: 10px;" >
+                <fe-standardSelect [label]="'Select a Status'"
+                                  [Certifications]="DistinctCertifications"
+                                  (ItemSelected)="FilterByCertifications($event)"
+                                   ></fe-standardSelect>
+              </div>
+            </ng-template> 
+           
+          
+          </td>
+        </ng-container>
+
+     
+      <ng-container matColumnDef="Rating">
+        <th mat-header-cell *matHeaderCellDef> Rating </th>
+        <td mat-cell *matCellDef="let element;let i=index"> 
+          <div *ngIf="i>0; else ShowSearchBy">
+            {{element.rating|number:'1.2-3'}}%
+          </div>
+          <ng-template #ShowSearchBy>
+            <div style="align-items: center; justify-content: center;margin-top: 10px;" >
+              <fe-inputBox [labelInput]="'Search By Rating'"
+                           (inputOutput)="FiltereByRating($event)"></fe-inputBox>
+            </div>
+          </ng-template> 
+          </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr (click)=" i>0 && openDialog(row,i)"  mat-row *matRowDef="let row; let i=index;columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[11, 20]"
+                   showFirstLastButtons 
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  
+  

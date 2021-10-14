@@ -1,0 +1,48 @@
+table {
+    width: 100%;
+  }
+  
+
+  .make-green{
+    padding:5px;
+    display:inline-block;
+    color: #536154;
+    background-color: #C8E6C9;
+  }
+
+    .make-pink{
+      padding:5px;
+    display:inline-block;
+    color: #977c7f;
+    background-color: #ffcdd2;
+  }
+
+  .make-yellow{
+    padding:5px;
+    display:inline-block;
+    color: #9c9169;
+    background-color: #FEEDAF;
+  }
+
+ tr.mat-row:hover {
+    background-color: #e2f2fd;
+
+}
+
+
+.checkbox-round {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: gray;
+}

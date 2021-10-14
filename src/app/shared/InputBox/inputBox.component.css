@@ -1,0 +1,17 @@
+.example-form {
+    min-width: 115px;
+    max-width: 115px;
+    width: 100%;
+    background-color: white !important;
+    font-size: 10px;
+  }
+ 
+ .example-form .mat-form-field-appearance-fill .mat-form-field-flex{
+     background-color: white !important;
+ }
+
+  .example-full-width {
+    width: 100%;
+  }
+  
+

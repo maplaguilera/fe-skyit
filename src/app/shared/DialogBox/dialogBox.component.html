@@ -1,0 +1,46 @@
+<div style="display:flex;flex-direction: column;">
+    <!-- Movie Details and Close icon-->
+    <div style="display:flex; flex-direction:row;justify-content: space-between;padding:0px; margin:0;">
+        <h4>MOVIE DETIALS</h4>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div mat-dialog-actions>
+            <div (click)="onNoClick()" style="border-radius: 50%;
+            border: 1px solid #84a2aa; margin-top:-19px; padding-top:4px; padding-bottom: 4px;
+            padding-left: 6px; padding-right: 6px;">
+                <i class="fa fa-times"></i>
+            </div>
+            </div>
+    </div>
+    <!--DEtials-->
+    <!--justify-content: center; align-items: center;align-content: center;-->
+    <div style="display:flex; flex-direction: column;  background-color: #84a2aa ;"> 
+        <h3 class="fontCss" style=" text-align: center;margin:0;padding:0;opacity: 0.8; margin-top:15px; align-items: center;">{{data.title}}</h3>
+        <p class="fontCss" style="text-align: center ;margin:0;padding:0;opacity: 0.8; margin-top:8px;"> Directed by {{data.director}}</p>
+        <div style="padding-top:5px;padding-left: 10px;"  class="fontcssSmal">
+            <h3 style="display:inline;" >Cast:</h3>
+            <p style="display:inline; padding:0px;background-color: white; margin-left:5px;line-height: 1.6;
+                        border-radius: 100px; padding-left:10px; padding-right:10px;" *ngFor="let item of data.cast">{{item}}</p>
+            
+        </div>
+       
+        <div style="padding-top:25px;padding-left: 10px; overflow-wrap: normal;"  class="fontCss">
+            <h3 style="display:inline;" >Genre:</h3>
+            <div style="display:inline; padding:0px;background-color: white; margin-left:5px;line-height: 1.6;
+                        border-radius: 100px; padding-left:10px; padding-right:10px;" 
+                        *ngFor="let item of data.genre">{{item}}</div>
+            
+        </div>
+        <div style="padding-top:25px;padding-left: 0px;margin-left:10px;padding-bottom: 10px;"  class="fontCss">
+            <h3 style="display:inline;" >Plot:</h3>
+            <div>{{data.plot}}</div>
+            
+        </div>
+        
+    </div>
+    <br>
+    <div style="display:flex; flex-direction:row;justify-content: flex-end;padding:0px; margin:0;">
+    All movie data are from Wikipedia and IMDb.
+    </div>
+</div>
+
+
